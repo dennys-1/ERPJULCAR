@@ -1,0 +1,37 @@
+@model ERPJULCAR.Models.OrdenesCompra
+
+@{
+    ViewData["Title"] = "Editar Orden de Compra";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Serie"></label>
+        <input asp-for="Serie" class="form-control" />
+        <span asp-validation-for="Serie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FechaOrden"></label>
+        <input asp-for="FechaOrden" type="date" class="form-control" />
+        <span asp-validation-for="FechaOrden" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdProveedor"></label>
+        <input asp-for="IdProveedor" class="form-control" />
+        <span asp-validation-for="IdProveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Estado"></label>
+        <select asp-for="Estado" class="form-control">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Aprobado">Aprobado</option>
+            <option value="Anulado">Anulado</option>
+        </select>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

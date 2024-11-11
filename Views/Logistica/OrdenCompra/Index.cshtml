@@ -1,0 +1,42 @@
+@model IEnumerable<ERPJULCAR.Models.OrdenesCompra>
+
+@{
+    ViewData["Title"] = "Lista de Órdenes de Compra";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Index" method="get" class="form-inline mb-3">
+    <div class="form-group mr-2">
+        <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Buscar por Serie o Proveedor..." />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Limpiar</a>
+</form>
+<a asp-controller="OrdenCompra" asp-action="Create" class="btn btn-primary">CREAR</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Serie</th>
+            <th>Fecha Orden</th>
+            <th>Proveedor</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Serie</td>
+            <td>@item.FechaOrden.ToShortDateString()</td>
+            <td>@item.IdProveedor</td>
+            <td>@item.Estado</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdOrdenCompra" class="btn btn-sm btn-warning">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.IdOrdenCompra" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+@model ERPJULCAR.Models.OrdenesCompra
+
+@{
+    ViewData["Title"] = "Eliminar Orden de Compra";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>¿Estás seguro de que deseas eliminar esta orden de compra?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Serie</dt>
+        <dd class="col-sm-10">@Model.Serie</dd>
+
+        <dt class="col-sm-2">Fecha de Orden</dt>
+        <dd class="col-sm-10">@Model.FechaOrden.ToShortDateString()</dd>
+
+        <dt class="col-sm-2">Proveedor</dt>
+        <dd class="col-sm-10">@Model.IdProveedor</dd>
+
+        <dt class="col-sm-2">Estado</dt>
+        <dd class="col-sm-10">@Model.Estado</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="IdOrdenCompra" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

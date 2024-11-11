@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+    <p>Seleccione una opción:</p>
+    <div>
+        <!-- Botón para redirigir al área de Logística en el controlador OrdenCompra -->
+<a asp-controller="OrdenCompra" asp-action="Index" class="btn btn-primary">Logística</a>
+
+        <a href="/Almacen" class="btn btn-primary">Almacén</a>
+        <a href="/Ventas" class="btn btn-primary">Ventas</a>
+    </div>
+</div>
